@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../css/mangment.css'
 
 const ExpenseManagement = () => {
   const [expenseData, setExpenseData] = useState({
@@ -26,7 +27,7 @@ const ExpenseManagement = () => {
         return;
       }
 
-      const response = await axios.post('https://your-backend.com/expenses', expenseData);
+      const response = await axios.post('http://localhost:5000/expenses', expenseData);
 
       console.log('Added Expense:', response.data);
       

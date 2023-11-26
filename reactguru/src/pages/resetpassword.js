@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../css/reset.css'
 
 const PasswordReset = () => {
   const [email, setEmail] = useState('');
@@ -12,7 +13,7 @@ const PasswordReset = () => {
         return;
       }
 
-      const response = await axios.post('https://your-backend.com/auth/reset-password', {
+      const response = await axios.post('http://localhost:5000/auth/reset-password', {
         email: email,
       });
 

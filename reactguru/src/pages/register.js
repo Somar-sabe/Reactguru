@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../css/register.css'
+import { useHistory } from 'react-router-dom';
 
 const Registration = () => {
+  const history = useHistory();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -20,7 +23,7 @@ const Registration = () => {
         return;
       }
 
-      const response = await axios.post('https://your-backend.com/auth/register', {
+      const response = await axios.post('http://localhost:5000/auth/register', {
         name: formData.name,
         email: formData.email,
         password: formData.password,
@@ -28,7 +31,8 @@ const Registration = () => {
 
       console.log('User registered:', response.data);
       alert('Success: Registration successful!');
-      // You might redirect the user to a login screen or perform other actions
+      // redirect the user to a login screen 
+      history.push('/login');
     } catch (error) {
       console.error('Registration error:', error);
       alert('Error: Failed to register. Please try again.');

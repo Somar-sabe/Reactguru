@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom'; // Import useHistory from React Router
+import '../css/login.css'
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -22,12 +23,10 @@ const Login = () => {
       }
 
       // Send a POST request to your actual backend login endpoint
-      const response = await axios.post('https://your-backend.com/login', {
+      const response = await axios.post('http://localhost:5000/auth/login', {
         email: formData.email,
         password: formData.password,
       });
-
-      // Assuming the backend responds with a token or user data upon successful login
       const userData = response.data;
 
       console.log('Login successful:', userData);
