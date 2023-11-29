@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../css/register.css'
-import { useHistory } from 'react-router-dom';
 
-const Registration = () => {
-  const history = useHistory();
+
+const Registration = ({ history }) => {
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -18,7 +17,7 @@ const Registration = () => {
   const handleRegister = async () => {
     try {
       // Validate if all fields are not empty
-      if (formData.name === '' || formData.email === '' || formData.password === '') {
+      if (!formData.name || !formData.email || !formData.password) {
         alert('Error: Please fill in all fields');
         return;
       }
@@ -31,7 +30,7 @@ const Registration = () => {
 
       console.log('User registered:', response.data);
       alert('Success: Registration successful!');
-      // redirect the user to a login screen 
+      // Redirect the user to the login screen 
       history.push('/login');
     } catch (error) {
       console.error('Registration error:', error);
