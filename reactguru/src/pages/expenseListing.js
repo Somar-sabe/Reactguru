@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../Assests/expenseListing'
+import '../css/expenseListing.css'
 
 const ExpenseListing = ({ userId }) => {
   const [expenses, setExpenses] = useState([]);
